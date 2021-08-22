@@ -18,7 +18,7 @@ const SavedBooks = () => {
     fetchPolicy: "cache-and-network",
   });
 
-  const userData = data?.me || {};
+  const userData = data?.me || data?.user || {};
 
   const [removeBook] = useMutation(REMOVE_BOOK);
 
@@ -31,11 +31,7 @@ const SavedBooks = () => {
     }
 
     try {
-      const response = await removeBook({ variables: { bookId } });
-
-      if (!response.ok) {
-        throw new Error("something went wrong!");
-      }
+      await removeBook({ variables: { bookId } });
 
       removeBookId(bookId);
       window.location.replace("/saved");
@@ -58,7 +54,7 @@ const SavedBooks = () => {
       </Jumbotron>
       <Container>
         <h2>
-          {userData.savedBooks.length
+          {userData.bookCount
             ? `Viewing ${userData.savedBooks.length} saved ${
                 userData.savedBooks.length === 1 ? "book" : "books"
               }:`

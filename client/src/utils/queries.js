@@ -6,7 +6,7 @@ export const QUERY_ME = gql`
       username
       bookCount
       savedBooks {
-        _id
+        bookId
         authors
         title
         description
