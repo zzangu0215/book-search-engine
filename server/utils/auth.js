@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 
 // set token secret and expiration date
 const secret = process.env.SECRET;
-const expiration = proecss.env.EXPIRE;
+const expiration = process.env.EXPIRE;
 
 module.exports = {
   // function for our authenticated routes

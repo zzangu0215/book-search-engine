@@ -35,7 +35,7 @@ const SignupForm = () => {
     }
 
     try {
-      const { data } = await createUser({ variables: { ...userFormData } });
+      const { data } = await addUser({ variables: { ...userFormData } });
 
       if (!data.ok) {
         throw new Error("something went wrong!");
