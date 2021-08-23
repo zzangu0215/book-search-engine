@@ -1,4 +1,5 @@
 import React from "react";
+import { useQuery, useMutation } from "@apollo/client";
 import {
   Jumbotron,
   Container,
@@ -7,7 +8,6 @@ import {
   Button,
 } from "react-bootstrap";
 
-import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
 import { REMOVE_BOOK } from "../utils/mutations";
 import { removeBookId } from "../utils/localStorage";
@@ -30,6 +30,7 @@ const SavedBooks = () => {
       return false;
     }
 
+    console.log(bookId);
     try {
       await removeBook({ variables: { bookId } });
 
